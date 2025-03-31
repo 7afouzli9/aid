@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="waw.css" />
+  </head>
+  <body>
+    <h1 style="color: rgb(0, 0, 0)">انزل و خوذ مهبتك</h1>
+
+    <div>
+      <img src="a.png" alt="" class="ras" onclick="playSound()" />
+    </div>
+    <audio id="sound" src="228.mp3" loop="loop"></audio>
+
+    <script>
+      document.getElementById("krarz").addEventListener("click", function () {
+        const baz3a = document.getElementById("baz3a");
+        baz3a.classList.toggle("show");
+      });
+
+      function playSound() {
+        var sound = document.getElementById("sound");
+        sound.currentTime = 0;
+        sound.play().catch((e) => console.log("Audio play failed:", e));
+      }
+
+      // Play sound immediately when audio is ready
+      window.addEventListener("DOMContentLoaded", function () {
+        const sound = document.getElementById("sound");
+        sound.load(); // Ensure the audio is loaded
+        sound.addEventListener(
+          "canplaythrough",
+          function () {
+            playSound();
+          },
+          { once: true }
+        );
+      });
+    </script>
+  </body>
+</html>
